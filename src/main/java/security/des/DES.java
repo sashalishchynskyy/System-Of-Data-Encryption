@@ -19,10 +19,8 @@ public class DES {
     }
 
     private static Key getDESKey() throws Exception {
-        System.out.println("\nStart generating DES key");
         KeyGenerator keyGen = KeyGenerator.getInstance("DES");
         keyGen.init(56);
-        System.out.println("Finish generating DES key");
         return keyGen.generateKey();
     }
 
