@@ -19,7 +19,6 @@ public class RSA {
             e.printStackTrace();
         }
         System.out.println("\n" + cipher.getProvider().getInfo());
-
     }
 
     private static void generateRsaKey() throws Exception {
@@ -43,12 +42,11 @@ public class RSA {
         return cipherStringBytes;
     }
 
-    public static byte[] decryptCipherTextRSA(byte[] cipherText) throws Exception {
+    public static byte[] decryptCipherTextRSA(byte[] cipherStringBytes) throws Exception {
         System.out.println("\nStart decryption");
         cipher.init(Cipher.DECRYPT_MODE, key.getPrivate());
-        byte[] newPlainText = cipher.doFinal(cipherText);
+        byte[] stringBytes = cipher.doFinal(cipherStringBytes);
         System.out.println("Finish decryption: ");
-        System.out.println(new String(newPlainText, "UTF8"));
-        return newPlainText;
+        return stringBytes;
     }
 }
