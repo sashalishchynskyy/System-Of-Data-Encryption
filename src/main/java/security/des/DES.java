@@ -33,11 +33,11 @@ public class DES {
         return cipherByteString;
     }
 
-    public static byte[] decryptCipherTextDES(byte[] cipherText) throws Exception {
+    public static byte[] decryptCipherTextDES(byte[] cipherByteString) throws Exception {
         System.out.println("\nStart decryption");
         cipher.init(Cipher.DECRYPT_MODE, key);
-        byte[] newPlainText = cipher.doFinal(cipherText);
-        System.out.println("Finish decryption: ");
-        return newPlainText;
+        byte[] stringBytes = cipher.doFinal(cipherByteString);
+        System.out.println("Finish decryption");
+        return stringBytes;
     }
 }
