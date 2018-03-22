@@ -34,14 +34,13 @@ public class RSA {
         return Cipher.getInstance("RSA/ECB/PKCS1Padding");
     }
 
-    public static byte[] encryptTextRSA(String password) throws Exception {
+    public static byte[] encryptTextRSA(String string) throws Exception {
         System.out.println("\nStart encryption");
-        byte[] plainText = password.getBytes("UTF8");
+        byte[] stringBytes = string.getBytes("UTF8");
         cipher.init(Cipher.ENCRYPT_MODE, key.getPublic());
-        byte[] cipherText = cipher.doFinal(plainText);
-        System.out.println(new String(cipherText, "UTF8"));
+        byte[] cipherStringBytes = cipher.doFinal(stringBytes);
         System.out.println("Finish encryption: ");
-        return cipherText;
+        return cipherStringBytes;
     }
 
     public static byte[] decryptCipherTextRSA(byte[] cipherText) throws Exception {
