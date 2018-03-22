@@ -26,13 +26,13 @@ public class DES {
         return keyGen.generateKey();
     }
 
-    public static byte[] encryptTextDES(String password) throws Exception {
+    public static byte[] encryptTextDES(String string) throws Exception {
         System.out.println("\nStart encryption");
-        byte[] plainText = password.getBytes("UTF8");
+        byte[] stringBytes = string.getBytes("UTF8");
         cipher.init(Cipher.ENCRYPT_MODE, key);
-        byte[] cipherText = cipher.doFinal(plainText);
-        System.out.println("Finish encryption: ");
-        return cipherText;
+        byte[] cipherByteString = cipher.doFinal(stringBytes);
+        System.out.println("Finish encryption");
+        return cipherByteString;
     }
 
     public static byte[] decryptCipherTextDES(byte[] cipherText) throws Exception {
